@@ -47,7 +47,7 @@ class OrdinalOptimizer:
                 next = self.coordinates[i+1]
             except IndexError:
                 next = None
-            
+
             if next is not None:
                 if two_ordinal_cancel_each_other(current, next):
                     i = i + 1
@@ -56,13 +56,15 @@ class OrdinalOptimizer:
             else:
                 new_list.append(current)
             i = i + 1
-            
+
         if len(new_list) == len(self.coordinates):
             return new_list
-        
+
         else:
             self.coordinates = new_list
             return self.solve()
 
-oo = OrdinalOptimizer(["NORTH", "WEST", "EAST", "SOUTH"])
-print(oo.solve())
+
+if __name__ == "__main__":
+    oo = OrdinalOptimizer(["NORTH", "WEST", "EAST", "SOUTH"])
+    print(oo.solve())
