@@ -30,11 +30,11 @@ def two_ordinal_cancel_each_other(ordinal_1: str, ordinal_2: str) -> bool:
         return False
 
 
-class OrdinalOptimizer:
+class TeliaChallenge:
     def __init__(self, coordinates: List[str]):
         self.coordinates = coordinates
 
-    def solve(self):
+    def path_reduce(self):
         if len(self.coordinates) == 0:
             return []
 
@@ -62,9 +62,9 @@ class OrdinalOptimizer:
 
         else:
             self.coordinates = new_list
-            return self.solve()
+            return self.path_reduce()
 
 
 if __name__ == "__main__":
-    oo = OrdinalOptimizer(["NORTH", "WEST", "EAST", "SOUTH"])
-    print(oo.solve())
+    oo = TeliaChallenge(["NORTH", "WEST", "EAST", "SOUTH"])
+    print(oo.path_reduce())
